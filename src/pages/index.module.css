@@ -104,3 +104,13 @@
   -ms-transition: 1s;
   width: 120px;
 }
+
+.downArrow {
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0px;
+  left: 0;
+}

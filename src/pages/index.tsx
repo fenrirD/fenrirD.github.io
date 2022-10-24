@@ -7,6 +7,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Github from '@site/static/img/svg/icons8-github-96.svg'
 import Gmail from '@site/static/img/icon/icons8-gmail-48.svg'
 import Notion from '@site/static/img/icon/icons8-notion-48.svg'
+import Test from '@site/static/img/svg/test.svg'
 // @ts-ignore
 import wolf from '@site/static/img/icon/icons8-animal-microdots-premium-96.png'
 // import wolf2 from '@site/static/img/icon/icons8-wolf-flaticons-lineal-color-96.png'
@@ -22,7 +23,7 @@ function HomepageHeader() {
 
 
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)} style={{height:'100vh'}}>
+    <header className={clsx('hero hero--dark', styles.heroBanner)} style={{height:'100vh'}}>
       <div className="container">
         <div>
           <div >
@@ -60,8 +61,14 @@ function HomepageHeader() {
             </Link>
           </div>
         </div>
-        <div>
-          <button>dd!</button>
+        <div className={styles.downArrow}>
+          <button><Test style={{width:'2em', height:'2em'}} onClick={() => {
+            window.scrollTo({
+              top: window.innerHeight,
+              behavior: "smooth",
+            });
+          }}
+          /></button>
         </div>
       </div>
     </header>
@@ -76,9 +83,9 @@ export default function Home(): JSX.Element {
       description="Description will go into a meta tag in <head />">
        <HomepageHeader />
 
-       {/*<main>*/}
-         {/*<HomepageFeatures />*/}
-       {/*</main>*/}
+       <main>
+         <HomepageFeatures />
+       </main>
       <ToastContainer/>
     </Layout>
   );
