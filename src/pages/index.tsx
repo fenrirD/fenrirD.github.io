@@ -10,7 +10,6 @@ import Notion from '@site/static/img/icon/icons8-notion-48.svg'
 import Test from '@site/static/img/svg/test.svg'
 // @ts-ignore
 import wolf from '@site/static/img/icon/icons8-animal-microdots-premium-96.png'
-// import wolf2 from '@site/static/img/icon/icons8-wolf-flaticons-lineal-color-96.png'
 import { ToastContainer, toast } from 'react-toastify'
 
 import 'react-toastify/dist/ReactToastify.css'
@@ -19,16 +18,12 @@ import styles from './index.module.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
-  // console.log(github)
-
 
   return (
     <header className={clsx('hero hero--dark', styles.heroBanner)} style={{height:'100vh'}}>
       <div className="container">
         <div>
-          <div >
             <img src={wolf} className={styles.avatar}/>
-          </div>
         </div>
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
@@ -62,7 +57,7 @@ function HomepageHeader() {
           </div>
         </div>
         <div className={styles.downArrow}>
-          <button><Test style={{width:'2em', height:'2em'}} onClick={() => {
+          <button><Test style={{width:'2em', height:'2em', cursor: 'pointer'}} onClick={() => {
             window.scrollTo({
               top: window.innerHeight,
               behavior: "smooth",
@@ -82,8 +77,7 @@ export default function Home(): JSX.Element {
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
        <HomepageHeader />
-
-       <main>
+       <main style={{backgroundColor:'white'}}>
          <HomepageFeatures />
        </main>
       <ToastContainer/>

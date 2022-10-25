@@ -1,6 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import Html from '@site/static/img/svg/html.svg'
+import Css from '@site/static/img/svg/css.svg'
+import Js from '@site/static/img/svg/js.svg'
+import JQuery from '@site/static/img/svg/jqeury.svg'
 
 type FeatureItem = {
   title: string;
@@ -59,11 +63,51 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
+        <div style={{display:'flex',justifyContent:'center'}}>
+          <h1>Skills</h1>
         </div>
+        <div className='row'>
+          <div className={clsx('col col--2')}>
+            <div className={styles.test}>
+              <Html/>
+            </div>
+          </div>
+          <div className={clsx('col col--2')}>
+            <div className={styles.test}>
+              <JQuery/>
+            </div>
+          </div>
+          <div className={clsx('col col--2')}>
+            <div className={styles.test}>
+              <Js/>
+            </div>
+          </div>
+          <div className={clsx('col col--2')}>
+            <div className={styles.test}>
+              <Css/>
+            </div>
+          </div>
+        </div>
+        {/*<div className="row">*/}
+        {/*  {FeatureList.map((props, idx) => (*/}
+        {/*    <Feature key={idx} {...props} />*/}
+        {/*  ))}*/}
+        {/*</div>*/}
+        {/*<div className="row">*/}
+        {/*  {FeatureList.map((props, idx) => (*/}
+        {/*    <Feature key={idx} {...props} />*/}
+        {/*  ))}*/}
+        {/*</div>*/}
+        {/*<div className="row">*/}
+        {/*  {FeatureList.map((props, idx) => (*/}
+        {/*    <Feature key={idx} {...props} />*/}
+        {/*  ))}*/}
+        {/*</div>*/}
+        {/*<div className="row">*/}
+        {/*  {FeatureList.map((props, idx) => (*/}
+        {/*    <Feature key={idx} {...props} />*/}
+        {/*  ))}*/}
+        {/*</div>*/}
       </div>
     </section>
   );
