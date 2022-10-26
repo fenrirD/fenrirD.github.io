@@ -3,7 +3,7 @@
   align-items: center;
   padding: 2rem 0;
   width: 100%;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
 }
 
 .featureSvg {
@@ -20,4 +20,25 @@
   margin: 1rem;
   padding: 0 1rem;
   width: 128px;
+}
+
+.gridRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  /*align-items: center;*/
+  /*padding: 2rem 0;*/
+  /*width: 100%;*/
+  /*min-height: 100vh;*/
+}
+.careerImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rem;
+  border: 1px solid;
+  width: 15rem;
+  background-color: white;
+  height: 15rem;
 }

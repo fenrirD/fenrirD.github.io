@@ -28,3 +28,15 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.container {
+  margin: 0 auto;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+  max-width: var(--ifm-container-width);
+  padding: 0 var(--ifm-spacing-horizontal);
+  max-width: 71.25rem;
+  width: 100%;
+}
