@@ -9,7 +9,7 @@ const SkillsSection = () => {
   return (
     <section className={styles.features} style={{flexDirection:'column', backgroundColor:'#f9c51d'}}>
       <div style={{display: 'flex', justifyContent: 'center'}}>
-        <h1>Skills</h1>
+        <h1>SKILLS</h1>
       </div>
       <GridList data={frontEnds}>
         <div style={{display: 'flex', justifyContent: 'center'}}>
@@ -36,11 +36,11 @@ const CareerSection = () => {
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <h1>CAREER</h1>
       </div>
-      <div className="container" style={{display:'flex', flexDirection:'row'}}>
+      <div className={clsx(styles.careerContainer,"container")} >
         <div style={{flex:1, borderRight:'2px solid gray', margin: '0 auto'}}>
           <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
             <div className={styles.careerImg}>
-              <img src={fwLogo} />
+              <img src={fwLogo} className={styles.img}/>
             </div>
           </div>
         </div>
