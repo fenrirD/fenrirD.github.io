@@ -10,9 +10,9 @@ const GridList = (props:Props) => {
       {props.children}
       <div className={styles.gridRow}>
         {
-          frontEnds.map(({svg, title})=>{
+          frontEnds.map(({svg, title},idx)=>{
             return (
-              <div style={{justifyContent:'center', alignContent:'center'}} className={styles.test} key={title}>
+              <div style={{justifyContent:'center', alignContent:'center'}} className={styles.test} key={`${title}_${idx}`}>
                 {svg()}
                 <span>{title}</span>
               </div>
