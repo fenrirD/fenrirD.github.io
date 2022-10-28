@@ -11,6 +11,15 @@ declare module '@site/src/components/GridList' {
   export default function GridList(props: Props): JSX.Element;
 }
 
+declare module '@site/src/components/Career' {
+  import type {ReactNode} from 'react';
+  export interface Props {
+    readonly children?: ReactNode;
+    readonly companies: CareerType[]
+  }
+  export default function Career(props: Props): JSX.Element;
+}
+
 export interface GridItemType {
   readonly title: string
   readonly svg:()=>ReactElement,
