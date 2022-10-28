@@ -1,10 +1,11 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import {frontEnds} from "@site/src/data/constant";
+import {careers, frontEnds, backEnds, etc} from "@site/src/data/constant";
 import GridList from "@site/src/components/GridList";
 // @ts-ignore
 import fwLogo from '@site/static/img/logo_w.png'
+import Career from "@site/src/components/Career";
 
 const SkillsSection = () => {
   return (
@@ -17,12 +18,12 @@ const SkillsSection = () => {
           <h2>| FRONTEND</h2>
         </div>
       </GridList>
-      <GridList data={frontEnds}>
+      <GridList data={backEnds}>
         <div style={{display: 'flex', justifyContent: 'center'}}>
           <h2>| BACKEND</h2>
         </div>
       </GridList>
-      <GridList data={frontEnds}>
+      <GridList data={etc}>
         <div style={{display: 'flex', justifyContent: 'center'}}>
           <h2>| ETC</h2>
         </div>
@@ -34,16 +35,14 @@ const SkillsSection = () => {
 const CareerSection = () => {
   return (
     <section className={styles.careerSection}>
-      <div style={{display: 'flex', justifyContent: 'center'}}>
-        <h1>CAREER</h1>
+      <div style={{display: 'flex', justifyContent: 'center', paddingTop:'2rem',marginBottom:'1.5rem'}}>
+        <h1>📃 CAREER</h1>
       </div>
       <div className={clsx(styles.careerContainer, "container")}>
         <div className={styles.companyLogoDiv}>
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             <div className={styles.careerImg}>
               <img src={fwLogo} className={styles.img}/>
             </div>
-          </div>
         </div>
         <div style={{display: 'flex', flex: 2, paddingLeft: '3rem', flexDirection: 'column'}}>
           {/*타이틀*/}
@@ -104,7 +103,8 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <>
       <SkillsSection/>
-      <CareerSection/>
+      {/*<CareerSection/>*/}
+      <Career companies={careers}/>
     </>
   );
 }

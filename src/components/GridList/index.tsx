@@ -5,12 +5,13 @@ import {frontEnds} from "@site/src/data/constant";
 
 const GridList = (props:Props) => {
   console.log(props)
+  const {data} = props;
   return (
     <div className="container">
       {props.children}
       <div className={styles.gridRow}>
         {
-          frontEnds.map(({svg, title},idx)=>{
+          data.map(({svg, title},idx)=>{
             return (
               <div style={{justifyContent:'center', alignContent:'center'}} className={styles.test} key={`${title}_${idx}`}>
                 {svg()}
