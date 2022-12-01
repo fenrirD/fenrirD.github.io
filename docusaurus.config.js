@@ -48,11 +48,12 @@ const config = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+
         },
       }),
     ],
   ],
-
+  themes: ['@docusaurus/theme-live-codeblock'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -69,12 +70,12 @@ const config = {
           src: 'img/icon/icons8-animal-microdots-premium-96.png',
         },
         items: [
-          {
+      /*    {
             type: 'doc',
             docId: 'intro',
             position: 'left',
             label: 'Tutorial',
-          },
+          },*/
           {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/facebook/docusaurus',
@@ -132,7 +133,7 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-    }),
+    })
 };
 
 module.exports = config;
