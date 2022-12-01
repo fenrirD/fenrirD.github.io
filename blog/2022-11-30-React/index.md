@@ -2,7 +2,6 @@
 slug: react-batch
 title: React Batch?
 authors: [fenrir]
-tags: [React, Batch, 기술면접]
 ---
 
 ## 도입
@@ -164,13 +163,3 @@ Q. 오호. 합격!
 참조
 > [React 18 Automatic Batch](https://github.com/reactwg/react-18/discussions/21)
 > [Naver D2 기술 블로그](https://d2.naver.com/helloworld/9297403#ch2)
-
-
-
-
-
-
-
-
-
-
