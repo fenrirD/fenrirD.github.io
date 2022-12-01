@@ -151,7 +151,7 @@ Q. 오호. 합격!
 이라는 시나리오를 쓰면서 글을 마무리한다.
 
 참조
-> [React 18 Automatic Batch](https://github.com/reactwg/react-18/discussions/21)
+> [React 18 Automatic Batch](https://github.com/reactwg/react-18/discussions/21)  
 > [Naver D2 기술 블로그](https://d2.naver.com/helloworld/9297403#ch2)
 
 
