@@ -12,6 +12,7 @@ import ErrorPageContent from '@theme/ErrorPageContent';
 import type {Props} from '@theme/Layout';
 import styles from './styles.module.css';
 import BackToTopButton from "@theme/BackToTopButton";
+import useIsBrowser from "@docusaurus/useIsBrowser";
 
 export default function Layout(props: Props): JSX.Element {
   const {
@@ -24,7 +25,9 @@ export default function Layout(props: Props): JSX.Element {
   } = props;
 
   useKeyboardNavigation();
-  const showNavbar = window.location.pathname === '/';
+
+  const isBrowser = useIsBrowser();
+  const showNavbar = isBrowser && window.location.pathname === '/';
   return (
     <LayoutProvider>
       <BackToTopButton />
