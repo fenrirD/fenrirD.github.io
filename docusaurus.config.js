@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.png',
+  favicon: 'img/icon/icons8-animal-microdots-premium-96.png',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -48,36 +48,37 @@ const config = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+
         },
       }),
     ],
   ],
-
+  themes: ['@docusaurus/theme-live-codeblock'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-
     ({
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
+      metadata: [{name: 'keywords', content: 'cooking, blog'}],
       navbar: {
         title: 'Fenrir',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/icon/icons8-animal-microdots-premium-96.png',
         },
         items: [
-          {
+      /*    {
             type: 'doc',
             docId: 'intro',
             position: 'left',
             label: 'Tutorial',
-          },
+          },*/
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/fenrirD/fenrirD.github.io/tree/develop',
             label: 'GitHub',
             position: 'right',
           },
@@ -132,7 +133,7 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-    }),
+    })
 };
 
 module.exports = config;

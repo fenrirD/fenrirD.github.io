@@ -6,6 +6,7 @@ import Js from '@site/static/img/svg/js.svg'
 import JQuery from '@site/static/img/svg/jqeury.svg'
 // import OpenLayers from '@site/static/img/svg/openlayers.svg'
 import ReactIcon from '@site/static/img/svg/react.svg'
+import Redux from '@site/static/img/svg/redux.svg'
 import TypeScript from '@site/static/img/svg/typescript.svg'
 import Vue from '@site/static/img/svg/vue.svg'
 import Docker from '@site/static/img/svg/docker.svg'
@@ -41,7 +42,10 @@ const frontEnds = [
   createGridData('JS', () => <Js/>),
   createGridData('JQuery', () => <JQuery/>),
   createGridData('React', () => <ReactIcon/>),
+
+  createGridData('Redux', () => <Redux/>),
   createGridData('Typescript', () => <TypeScript/>),
+  createGridData('ReactNative', () => <ReactIcon/>),
   createGridData('Vue.JS', () => <Vue/>),
 ]
 

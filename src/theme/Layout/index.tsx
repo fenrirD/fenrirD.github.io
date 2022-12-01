@@ -11,6 +11,7 @@ import LayoutProvider from '@theme/Layout/Provider';
 import ErrorPageContent from '@theme/ErrorPageContent';
 import type {Props} from '@theme/Layout';
 import styles from './styles.module.css';
+import BackToTopButton from "@theme/BackToTopButton";
 
 export default function Layout(props: Props): JSX.Element {
   const {
@@ -24,16 +25,17 @@ export default function Layout(props: Props): JSX.Element {
 
   useKeyboardNavigation();
   console.log("??")
-
+  const showNavbar = window.location.pathname === '/';
   return (
     <LayoutProvider>
+      <BackToTopButton />
       <PageMetadata title={title} description={description} />
 
       <SkipToContent />
 
       <AnnouncementBar />
 
-      {/*<Navbar />*/}
+      {!showNavbar && <Navbar/>}
 
       <div
         className={clsx(
