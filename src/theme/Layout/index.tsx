@@ -24,7 +24,6 @@ export default function Layout(props: Props): JSX.Element {
   } = props;
 
   useKeyboardNavigation();
-  console.log("??")
   const showNavbar = window.location.pathname === '/';
   return (
     <LayoutProvider>
@@ -36,17 +35,16 @@ export default function Layout(props: Props): JSX.Element {
       <AnnouncementBar />
 
       {!showNavbar && <Navbar/>}
-
       <div
-        className={clsx(
-          ThemeClassNames.wrapper.main,
-          styles.mainWrapper,
-          wrapperClassName,
-        )}>
-        <ErrorBoundary fallback={(params) => <ErrorPageContent {...params} />}>
-          {children}
-        </ErrorBoundary>
-      </div>
+          className={clsx(
+            ThemeClassNames.wrapper.main,
+            styles.mainWrapper,
+            wrapperClassName,
+          )}>
+          <ErrorBoundary fallback={(params) => <ErrorPageContent {...params} />}>
+            {children}
+          </ErrorBoundary>
+        </div>
 
       {!noFooter && <Footer />}
     </LayoutProvider>
