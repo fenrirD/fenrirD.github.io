@@ -2,6 +2,7 @@
 slug: react-batch
 title: React Batch?
 authors: [fenrir]
+tags: [batch, react, 기술면접]
 ---
 
 ## 도입
@@ -19,6 +20,7 @@ Q. 아.. 네
 
 ---
 
+
 위 Q&A는 내가 면접 때 질문을 듣고 대답한 내용이다.  
 내가 FE 개발자로 React를 공부했다고 하면서 이런 질문에 다시는 얼버무리지 않기 위해 정리하고자 한다.
 
@@ -29,7 +31,7 @@ React는 성능을 위해 여러 setState() 호출을 단일 업데이트로 한
 
 ## Batch?
 
-Batching 이란? React가 더 나은 성능을 위해 *여러 상태 업데이트를 단일 재랜더링으로 그룹화* 하는 경우이다.
+Batch란? React가 더 나은 성능을 위해 *여러 상태 업데이트를 단일 재랜더링으로 그룹화* 하는 경우이다.
 쉽게 생각해서 다이소에서 물건 10개를 살 때, 모든 물건의 값을 지불하는게 아닌 물건 각각 계산을 해서 영수증을 10개를 받게 된다면 얼마나 비효율적인지 생각하면 쉽다.
 그래서 React 도 상태가 변경 될 때마다 DOM을 다시 그리는게 아닌 변경된 상태를 한번에 DOM에 반영하는 것이다.
 
@@ -97,15 +99,15 @@ function Counter() {
 ```
 
 위 코드를 실행하면 `renderCount`가 `setCount` 횟수만큼 증가한다.  
-즉 Batching은 `Promise`, `setTimeout`, `native Event Handler` 등은 일괄 처리 되지 않는다.
+즉 Batch는 `Promise`, `setTimeout`, `native Event Handler` 등은 일괄 처리 되지 않는다.
 
 ### Automatic Batch
 :::info
 React 18 버전 부터는 `Automatic Batch` 을 지원한다.  
-[공식 문서 - Automatic Batching](https://ko.reactjs.org/blog/2022/03/29/react-v18.html#new-feature-automatic-batching)
+[공식 문서 - Automatic Batch](https://ko.reactjs.org/blog/2022/03/29/react-v18.html#new-feature-automatic-batching)
 :::
 
-이 글에 React 18버전의 Auto Batching이 어떻게 이루어지는지 코드 블럭을 통해 작성하고 싶지만 현재 Docusaurus의 버전이 17버전이므로 18버전으로 작성된 [React18 -Automatic Batch 예제](https://codesandbox.io/s/great-babycat-p98g6x)
+이 글에 React 18버전의 Auto Batch가 어떻게 이루어지는지 코드 블럭을 통해 작성하고 싶지만 현재 Docusaurus의 버전이 17버전이므로 18버전으로 작성된 [React18 -Automatic Batch 예제](https://codesandbox.io/s/great-babycat-p98g6x)
 위 샌드박스에서 `add` 버튼을 누르면 17버전과 다르게 `renderCounter`가 1번만 증가 하는거를 알수 있다.
 
 ### Batch 를 사용하지 않으려면?
