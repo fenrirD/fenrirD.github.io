@@ -1,14 +1,8 @@
 import React, {useState} from 'react';
 
-const SyncTest = () => {
+const AsyncTest = () => {
 
   const [foods, setFoods] = useState([]);
-
-  function sleep(ms) {
-    const loopTime = Date.now() + ms;
-    while (Date.now() < loopTime) {
-    }
-  }
 
   function order() {
     const foods = ['피자', '치킨', '물'];
@@ -18,45 +12,16 @@ const SyncTest = () => {
   function cook(food) {
     const ms = Math.floor(Math.random() * 10000);
     console.log('조리 시간:', ms);
-    sleep(ms);
-    serve(food, ms);
-    // setTimeout(()=> {
-    //   serve(food, ms)
-    // },ms)
+    setTimeout(()=> {
+      serve(food, ms)
+    },ms)
   }
-
 
   function serve(food, time) {
     time = time / 1000;
     setFoods((old) => [...old, {food, time}]);
     console.log("서빙 : ", food);
-
   }
-
-  function getImage(src:string, callback:Function){
-    try {
-      const img = new Image();
-      img.src=src;
-      callback(img)
-    } catch (e) {
-      new Error(e)
-    }
-
-  }
-
-  function resizeImage(img:HTMLImageElement, callback) {
-    img.width = 150;
-    img.height= 150;
-    callback(img)
-  }
-
-  getImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8B8c7i0OCqgXJiV7al7cTXiaAjDWEHharTg&usqp=CAU",(img,e)=>{
-    console.log(e)
-    resizeImage(img, ()=>{
-      console.log(img, img.width, img.height)
-    })
-  })
-
 
   return (
     <div style={{display: 'flex', flex: '1', flexDirection: 'column'}}>
@@ -69,10 +34,8 @@ const SyncTest = () => {
           foods.map(({food, time}, idx) => <div key={"food_" + idx}>음식:{food}, 시간: {time} 초</div>)
         }
       </div>
-      <div>
-      </div>
     </div>
   )
 }
 
-export default SyncTest
+export default AsyncTest
