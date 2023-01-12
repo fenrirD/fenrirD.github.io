@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import {toast} from "react-toastify";
+
 
 const AsyncTest = () => {
 
@@ -21,6 +23,9 @@ const AsyncTest = () => {
     time = time / 1000;
     setFoods((old) => [...old, {food, time}]);
     console.log("서빙 : ", food);
+    const a = new Promise(()=>{
+
+    })
   }
 
   return (

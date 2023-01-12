@@ -2,7 +2,7 @@
 slug: js-asynchronous
 title: js 비동기 프로그래밍
 authors: [fenrir]
-tags: [batch, react, 기술면접]
+tags: [비동기, javascript, promise, event loop]
 ---
 
 import BrowserWindow from '@site/src/components/BrowserWindow';
@@ -117,9 +117,13 @@ javascript 엔진(V8)과  브라우저에 대해서 어느정도 이해가 필�
   * DOM, AJAX, 등 브라우저가 제공하는 API
 * callback queue
   * DOM, AJAX, 등의 이벤트가 끝난 후 `queue`에서 대기한다.
+
 * Event Loop
   * Event Loop는 *Stack*이 비어있으면 queue에 있는 함수를 Stack으로 전달한다.
-  
+
+:::info
+callback queue는 **microtask queue** 와 **macrotask queue**가 존재하고 우선 순위도 다르지만 자세한 설명은 생략한다. 
+:::
 위 구조를 이해하기 위해 간단한 예제인 아래 코드를 보면서 이해를 해보자.
 
 #### 동기 (진동기 부회장 아님)
@@ -359,8 +363,44 @@ getImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8B8c7i0OCqgXJiV
 :::
 
 To be continue....
-### Promise
+### Promise (🤙)
+프로미스는 약속이다. 
+> 프로미스는 어느 시점에 비동기 작업의 최종 완료 혹은 실패에대한 결과값을 나타낸다.
+
+#### 프로미스 사용법
+
+```js
+new Promise(()=>{})
+
+```
+프로미스 객체는 `callback`을 받는 생성자를 통해 사용가능하다. 
+파라미터로는 `resolve` 와 `reject`를 사용한다.
+
+#### 프로미스의 상태
+프로미스의 상태는 `pending`, `fullfilled`, `rejected`를 갖고 있다.
+
+* ⏳`pending`: Promise는 해결(fullfilled) 혹은 실패(rejected)되지도 않고 대기중인 상태
+* ✔`fullfilled`: Promise가 해결된 상태
+* ✖ `rejected`: 어떤 이유로 Promise가 실패한 상태
+
+#### ㅍ
+
+* 프로미스의 상태는 `pending`, `fullfilled`, `rejected`를 갖음
+* `resolve`, `reject`
+* `then`, `cacth`, `finally`
+* 사실 callback queue 에는 두가지 task queue가 존재함 
+  * microtask queue
+    * promise, process.nextTick, queueMicrotask
+  * macrotask queue
+    * setTimeout, setInterval, setImmediate
+  * 우선순위는 마이크로태스크 큐가 더 높음
+* ES6에서 두두등장
+
 ### async / await
+
+* ES7에 두두등장 ( Promise는 ES6에서 등장함)
+* 사용법은 `async`는 function 앞페 `await`은 `promise`를 리턴받아야함! 
+
 ### 제너레이터 
 
 ## 결론
@@ -405,8 +445,8 @@ Q. 😲
 이라는 시나리오를 쓰면서 글을 마무리한다.
 
 참조
-> [Callback Hell](http://callbackhell.com/)
-> [Introducing asynchronous JavaScript](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Asynchronous/Introducing#%EC%BD%9C%EB%B0%B1)
-> [What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
-> [javascript-visualized-event-loop-3dif](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif)
+> [Callback Hell](http://callbackhell.com/)  
+> [Introducing asynchronous JavaScript](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Asynchronous/Introducing#%EC%BD%9C%EB%B0%B1)  
+> [What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)  
+> [javascript-visualized-event-loop-3dif](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif)  
 > 

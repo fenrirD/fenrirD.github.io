@@ -55,6 +55,7 @@ const SyncTest = () => {
     resizeImage(img, ()=>{
       console.log(img, img.width, img.height)
     })
+    new XMLHttpRequest().send()
   })
 
 
