@@ -362,28 +362,60 @@ getImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8B8c7i0OCqgXJiV
 [Callback hell](http://callbackhell.com/) 
 :::
 
-To be continue....
 ### Promise (🤙)
-프로미스는 약속이다. 
+위와 같이 **Callback Hell** 을 벗어나기 위해서 ES6에서 나온 문법이 `Promise`다.
+
 > 프로미스는 어느 시점에 비동기 작업의 최종 완료 혹은 실패에대한 결과값을 나타낸다.
 
-#### 프로미스 사용법
+#### 프로미스 문법
+프로미스 객체는 `callback`을 받는 생성자를 통해 사용가능하며 파라미터로는 `resolve` 와 `reject`를 사용한다.
 
 ```js
-new Promise(()=>{})
-
+new Promise((resolve, reject)=>{})
 ```
-프로미스 객체는 `callback`을 받는 생성자를 통해 사용가능하다. 
-파라미터로는 `resolve` 와 `reject`를 사용한다.
+<BrowserWindow>
+
+Promise   
+[[PromiseState]]: 'pending'  
+[[PromiseResult]]: undefiend
+</BrowserWindow>
+
+위를 콘솔창에 실행하면 `PromiseState`와 `PromiseResult` 값을 반환한다.
+
+`PromiseState`는 `pending`이고, `PromiseResult`는 `undefiend` 값을 갖고 있다.
+`PromiseState`와 `PromiseResult`를 통해 무언가를 하지 않는다.
+하지만 `Promise`가 어떤 상태를 값을 갖고 그 상태 값의 의미는 알아야 한다.
 
 #### 프로미스의 상태
-프로미스의 상태는 `pending`, `fullfilled`, `rejected`를 갖고 있다.
 
-* ⏳`pending`: Promise는 해결(fullfilled) 혹은 실패(rejected)되지도 않고 대기중인 상태
-* ✔`fullfilled`: Promise가 해결된 상태
-* ✖ `rejected`: 어떤 이유로 Promise가 실패한 상태
+프로미스의 상태는 `pending`, `fulfilled`, `rejected`를 갖고 있다.
 
-#### ㅍ
+* ⏳`pending`: Promise는 해결(fulfilled) 혹은 실패(rejected)되지도 않고 대기중인 상태
+* ✔`fullfilled`: Promise가 해결(resolve)된 상태
+* ✖ `rejected`: 어떤 이유로 Promise가 실패(rejected)한 상태
+
+```js
+new Promise((resolve, reject)=>{
+  if(true) {
+    resolve("성공")
+  } else {
+    reject("실패")
+  }
+})
+
+```
+
+위 코드를 실행해보면 아래와 같은 값을 볼 수 있다.
+<BrowserWindow>
+
+Promise   
+[[PromiseState]]: "fulfilled"  
+[[PromiseResult]]: "성공"
+</BrowserWindow>
+
+
+
+#### 프로미스로 콜백지옥을 벗어나자.
 
 * 프로미스의 상태는 `pending`, `fullfilled`, `rejected`를 갖음
 * `resolve`, `reject`
@@ -396,10 +428,34 @@ new Promise(()=>{})
   * 우선순위는 마이크로태스크 큐가 더 높음
 * ES6에서 두두등장
 
+#### 프로미스의 우선순위
+
+```js
+console.log('first log')
+
+setTimeout(()=>{console.log("timeout log")},0)
+
+Promise.resolve("Promist log").then((res)=>console.log(res))
+
+console.log('final log')
+
+```
+위에 실행 결과는 어떻게 될까?
+<BrowserWindow>
+
+first log  
+final log  
+Promist log  
+timeout log  
+
+</BrowserWindow>
+
+
 ### async / await
 
 * ES7에 두두등장 ( Promise는 ES6에서 등장함)
-* 사용법은 `async`는 function 앞페 `await`은 `promise`를 리턴받아야함! 
+* 사용법은 `async`는 function 앞페 `await`은 `promise`를 리턴받아야함!
+* `async`는 프로미스를 리턴함
 
 ### 제너레이터 
 
