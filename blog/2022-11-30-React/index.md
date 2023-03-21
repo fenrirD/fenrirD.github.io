@@ -104,7 +104,7 @@ function Counter() {
 ### Automatic Batch
 :::info
 React 18 버전 부터는 `Automatic Batch` 을 지원한다.  
-[공식 문서 - Automatic Batch](https://ko.reactjs.org/blog/2022/03/29/react-v18.html#new-feature-automatic-batching)
+[공식 문서 - Automatizc Batch](https://ko.reactjs.org/blog/2022/03/29/react-v18.html#new-feature-automatic-batching)
 :::
 
 이 글에 React 18버전의 Auto Batch가 어떻게 이루어지는지 코드 블럭을 통해 작성하고 싶지만 현재 Docusaurus의 버전이 17버전이므로 18버전으로 작성된 [React18 -Automatic Batch 예제](https://codesandbox.io/s/great-babycat-p98g6x)
