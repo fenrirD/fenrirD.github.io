@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfenrir_d_github_io=self.webpackChunkfenrir_d_github_io||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"React Batch?","permalink":"/blog/react-batch"}]}')}}]);

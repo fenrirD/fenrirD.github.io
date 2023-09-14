@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfenrir_d_github_io=self.webpackChunkfenrir_d_github_io||[]).push([[903],{7941:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/batch","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
