@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfenrir_d_github_io=self.webpackChunkfenrir_d_github_io||[]).push([[2054],{9116:e=>{e.exports=JSON.parse('{"label":"k8s","permalink":"/en/blog/tags/k-8-s","allTagsPath":"/en/blog/tags","count":1}')}}]);
