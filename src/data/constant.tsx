@@ -25,6 +25,7 @@ import React from "react";
 import {CareerType, FontSizeType, GridItemType} from "@site/src/type";
 // @ts-ignore
 import fwLogo from '@site/static/img/logo_w.png'
+// @ts-ignore
 import kbLogo from '@site/static/img/kbdsLogo.png'
 
 
@@ -73,14 +74,14 @@ const careers: CareerType[] = [
     projects: [
       {
         projectName: '이슈리포터 v2.1',
-        projectTerm: '2022.07 ~ 2023.09',
+        projectTerm: '2023.07 ~ 2023.09',
         projectDetail: 'KB데이타시스템에서 자체 개발한 SaaS 상품으로 업무 시스템에서 발생하는 이슈 및 테스트 수행 도구 개발에 FE/BE 역할을 맡았습니다.',
         skills: ['Vue.js', 'typescript', 'Java', 'Mysql', 'Jpa', 'Git', 'k8s', 'Jenkins',],
         responsibilities: ['공통 권한 검증 로직 개발', '(FE) 권한 관리 기능 개발', '(BE) 스페이스 개발', 'k8s Yaml 작성 및 수정']
       },
       {
         projectName: '이슈리포터 v2.0',
-        projectTerm: '2022.04 ~ 2023.06',
+        projectTerm: '2023.04 ~ 2023.06',
         projectDetail: 'KB데이타시스템에서 자체 개발한 SaaS 상품으로 업무 시스템에서 발생하는 이슈 및 테스트 수행 도구 개발에 FE 역할을 맡았습니다.',
         skills: ['Vue.js', 'typescript', 'Git', 'k8s', 'Jenkins',],
         responsibilities: ['공통 그리드 컴포넌트 개발', '클립보드, 이미지 공통 컴포넌트 개발', 'Tree 공통 컴포넌트 개발', '테스트 수행 도구 기능 개발','Jenkins Pipeline CI/CD 개선', 'k8s Pod 작성 및 추가']
