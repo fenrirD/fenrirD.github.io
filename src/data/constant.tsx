@@ -1,4 +1,4 @@
-import {ReactElement} from "react";
+import React, {ReactElement} from "react";
 
 import Html from '@site/static/img/svg/html.svg'
 import Css from '@site/static/img/svg/css.svg'
@@ -19,9 +19,6 @@ import PostgresSQL from '@site/static/img/svg/postgreSQL.svg'
 import Git from '@site/static/img/svg/git.svg'
 import Svn from '@site/static/img/svg/svn.svg'
 import Github from '@site/static/img/svg/github.svg'
-
-
-import React from "react";
 import {CareerType, FontSizeType, GridItemType} from "@site/src/type";
 // @ts-ignore
 import fwLogo from '@site/static/img/logo_w.png'
@@ -73,11 +70,18 @@ const careers: CareerType[] = [
     companyLogo: kbLogo,
     projects: [
       {
+        projectName: 'MSP Portal 개발',
+        projectTerm: '2024.01 ~ 진행 중',
+        projectDetail: 'KBDS에서 CSP 와 MSP가 업무를 수행하는데 효율적으로 하기 위한 플랫폼 개발',
+        skills: ['React', 'typescript', 'Recoil', 'React Query', 'jenkins', 'Git', 'k8s', ],
+        responsibilities: ['프론트엔드 리드 개발', 'DevOps(CI/CD)', '공통컴포넌트 개발', ]
+      },
+      {
         projectName: '이슈리포터 v2.1',
-        projectTerm: '2023.07 ~ 2023.09',
+        projectTerm: '2023.07 ~ 2023.12',
         projectDetail: 'KB데이타시스템에서 자체 개발한 SaaS 상품으로 업무 시스템에서 발생하는 이슈 및 테스트 수행 도구 개발에 FE/BE 역할을 맡았습니다.',
         skills: ['Vue.js', 'typescript', 'Java', 'Mysql', 'Jpa', 'Git', 'k8s', 'Jenkins',],
-        responsibilities: ['공통 권한 검증 로직 개발', '(FE) 권한 관리 기능 개발', '(BE) 스페이스 개발', 'k8s Yaml 작성 및 수정']
+        responsibilities: ['공통 권한 검증 로직 개발', '(FE) 권한 관리 기능 개발', '(BE) 스페이스 개발', 'k8s Yaml 작성 및 수정','설치형 자동화 쉘 스크립트 작성']
       },
       {
         projectName: '이슈리포터 v2.0',
@@ -94,7 +98,7 @@ const careers: CareerType[] = [
     companyLogo: fwLogo,
     projects: [
       {
-        projectName: '현대 오토에버 DKC2 클라우드 환경 인프라 구축',
+            projectName: '현대 오토에버 DKC2 클라우드 환경 인프라 구축',
         projectTerm: '2022.07 ~ 2023.03',
         projectDetail: '현대 오토에버에서 개발한 DKC2 중국 환경의 클라우드 인프라 구축 사업에 TA로 참여 중입니다.',
         skills: ['Git', 'k8s', 'Docker', 'Jenkins', 'ELK'],
