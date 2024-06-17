@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfenrir_d_github_io=self.webpackChunkfenrir_d_github_io||[]).push([[5927],{9767:e=>{e.exports=JSON.parse('{"label":"NPM","permalink":"/en/blog/tags/npm","allTagsPath":"/en/blog/tags","count":1}')}}]);

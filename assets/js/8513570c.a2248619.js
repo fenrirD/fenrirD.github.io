@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfenrir_d_github_io=self.webpackChunkfenrir_d_github_io||[]).push([[9982],{4159:e=>{e.exports=JSON.parse('{"label":"Vue.js","permalink":"/blog/tags/vue-js","allTagsPath":"/blog/tags","count":1}')}}]);
