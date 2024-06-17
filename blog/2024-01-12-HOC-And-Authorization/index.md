@@ -52,8 +52,6 @@ tags: [Vue.js, Authorization, HOC, js]
 
 ### Why? HOC & What HOC? 🤔
 
-왜 HOC를 선택했는지에 대해 설명하기 전에 HOC가 무엇인지 알아보자.
-
 #### 왜 HOC 선택 했을까?
 
 사실 가장 먼저 생각한 방법은 `vue-router`에서 구현되어 있는 `navigation-guards`를 활용하는 방법이였다.
