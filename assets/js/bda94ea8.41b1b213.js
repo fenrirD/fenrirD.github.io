@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfenrir_d_github_io=self.webpackChunkfenrir_d_github_io||[]).push([[2255],{7431:a=>{a.exports=JSON.parse('{"label":"var","permalink":"/blog/tags/var","allTagsPath":"/blog/tags","count":1}')}}]);
