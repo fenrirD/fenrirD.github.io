@@ -51,22 +51,6 @@ const SyncTest = () => {
     return "바보"
   }
 
-  // function getImage(src:string, callback:Function){
-  //   try {
-  //     const img = new Image();
-  //     img.src=src;
-  //     callback(img)
-  //   } catch (e) {
-  //     new Error(e)
-  //   }
-  //
-  // }
-
-  // function resizeImage(img:HTMLImageElement, callback) {
-  //   img.width = 150;
-  //   img.height= 150;
-  //   callback(img)
-  // }
   getImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8B8c7i0OCqgXJiV7al7cTXiaAjDWEHharTg&usqp=CAU")
     .then((res)=>{
       console.log('first ',res.width, res.height)
@@ -76,17 +60,10 @@ const SyncTest = () => {
       console.log('second ',res)
     })
     .catch((e)=>{
-      console.error(e)
+      console.error('에러내용:',e)
 
-      throw new Error("바보야 에러야")
+      // throw new Error("바보야 에러야")
     })
-
-  // getImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8B8c7i0OCqgXJiV7al7cTXiaAjDWEHharTg&usqp=CAU",(img,e)=>{
-  //   console.log(e)
-  //   resizeImage(img, ()=>{
-  //     console.log(img, img.width, img.height)
-  //   })
-  //   new XMLHttpRequest().send()
   // })
 
 

@@ -176,7 +176,7 @@ const SyncTest = () => {
   )
 }
 ```
-<SyncTest>
+<SyncTest >
 </SyncTest>
 
 ```mdx-code-block
