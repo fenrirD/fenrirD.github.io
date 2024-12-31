@@ -4,10 +4,133 @@
         <title>Fenrir  Blog</title>
         <link>https://fenrirD.github.io/blog</link>
         <description>Fenrir  Blog</description>
-        <lastBuildDate>Sat, 15 Jun 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 31 Dec 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ko</language>
+        <item>
+            <title><![CDATA[Git Flow 전략 사용기]]></title>
+            <link>https://fenrirD.github.io/blog/git-flow</link>
+            <guid>https://fenrirD.github.io/blog/git-flow</guid>
+            <pubDate>Tue, 31 Dec 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[도입]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="도입">도입<a class="hash-link" aria-label="도입에 대한 직접 링크" title="도입에 대한 직접 링크" href="https://fenrird.github.io/blog/git-flow#%EB%8F%84%EC%9E%85">​</a></h2>
+<p>어느 무더운 날, 팀장님이 팀원들을 회의실로 소집했다.</p>
+<p><img decoding="async" loading="lazy" alt="어셈블" src="https://fenrird.github.io/assets/images/img-aff76f2077a3f3b0ed15e2a79b88bf42.jpg" width="1024" height="429" class="img_ev3q"></p>
+<blockquote>
+<p>개발팀 어셈블!</p>
+</blockquote>
+<p>그 이유는 운영 중인 서비스와 앞으로 개발 할 서비스의 서버를 분리하자고 하셨고,
+FE 개발과 DevOps 직무를 병행하고 있는 나는 새로운 환경을 구성했다.</p>
+<p>새로운 환경을 구성하고 보니... 새로운 브랜치 전략이 필요하다는 생각이 들었다.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="본론">본론<a class="hash-link" aria-label="본론에 대한 직접 링크" title="본론에 대한 직접 링크" href="https://fenrird.github.io/blog/git-flow#%EB%B3%B8%EB%A1%A0">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="git-브랜치-전략-필요성">GIT 브랜치 전략 필요성<a class="hash-link" aria-label="GIT 브랜치 전략 필요성에 대한 직접 링크" title="GIT 브랜치 전략 필요성에 대한 직접 링크" href="https://fenrird.github.io/blog/git-flow#git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%A0%84%EB%9E%B5-%ED%95%84%EC%9A%94%EC%84%B1">​</a></h3>
+<p>프로젝트 초창기에는 운영 중인 환경이 없으니 <code>develop</code>에서 파생된 <code>feature</code> 브랜치에서 각 개발자들이 개발을 하고 <code>develop</code>에 머지 후 검증하고
+<code>master</code>에 반영하여 배포 하는 방식으로 개발을 진행했다. (배포 할 때 마다 태그를 생성)</p>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>팁</div><div class="admonitionContent_BuS1"><p>위 방법을 <code>Github Flow</code> 전략이라고 한다.</p></div></div>
+<p>하지만 어느 순간 프로젝트가 오픈을 하게 되고, 운영 중인 버전(v1.x)와 앞으로 개발 할 (v2.x) 를 동시에 관리가 필요하고, 각 기능 마다 배포시기가
+달라서 기존의 브랜치 전략을 사용한다면 엄청난 혼란에 빠지고, 배포 할 때 마다 피로도가 누적 될거라고 생각이 들었다.</p>
+<blockquote>
+<p>운영중인 v1.x.x 와 새로 개발하는 v2.x.x 에서 생겨난 문제</p>
+</blockquote>
+<p>그리고 이런 피로도는 곧 개발자들의 생산성 저하에 직결된다.</p>
+<p><img decoding="async" loading="lazy" alt="혼세마왕" src="https://fenrird.github.io/assets/images/img-0028b91f962d91b6e22706858503d070.png" width="475" height="403" class="img_ev3q"></p>
+<blockquote>
+<p>혼란하면 혼세마왕이 도래한다...</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="git-브랜치-전략이란">GIT 브랜치 전략이란?<a class="hash-link" aria-label="GIT 브랜치 전략이란?에 대한 직접 링크" title="GIT 브�랜치 전략이란?에 대한 직접 링크" href="https://fenrird.github.io/blog/git-flow#git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%A0%84%EB%9E%B5%EC%9D%B4%EB%9E%80">​</a></h3>
+<p>GIT 브랜치 전략은 소프트웨어 개발 과정에서 브랜치를 효과적으로 관리하고 사용하는 방법을 정의한 것으로 브랜치 전략은 코드의 안정성, 협업 효율성, 그리고 배포 프로세스를 향상시키기 위해 매우 중요하다고 한다</p>
+<blockquote>
+<p>ChatGPT Official</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="유명한-브랜치-전략">유명한 브랜치 전략<a class="hash-link" aria-label="유명한 브랜치 전략에 대한 직접 링크" title="유명한 브랜치 전략에 대한 직접 링크" href="https://fenrird.github.io/blog/git-flow#%EC%9C%A0%EB%AA%85%ED%95%9C-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%A0%84%EB%9E%B5">​</a></h4>
+<ul>
+<li>Git Flow<!-- -->
+<ul>
+<li>긴 수명의 브랜치('main', 'develop')와 짧은 수명의 브랜치('feature', 'release', 'hotfix')를 사용하여 코드 변경을 관리. 주로 대규모 프로젝트에서 사용되며, 명확한 구조와 프로세스를 제공</li>
+</ul>
+</li>
+<li>GitHub Flow<!-- -->
+<ul>
+<li>간단하고 효율적이며, 지속적인 배포(CD)를 지원.</li>
+<li>main 브랜치에서 파생된 짧은 수명의 feature 브랜치를 중심으로 작업.</li>
+</ul>
+</li>
+<li>GitLab Flow<!-- -->
+<ul>
+<li>GitHub Flow처럼 단순하지만, 추가적인 브랜치를 활용해 다양한 환경(예: staging, production)을 지원.</li>
+</ul>
+</li>
+<li>Trunk-Based Development<!-- -->
+<ul>
+<li>main 브랜치가 유일한 장기 브랜치로, 모든 변경이 여기에 병합.</li>
+<li>짧은 수명의 브랜치만 생성하며, 빠르게 병합 후 삭제.</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="선택">선택<a class="hash-link" aria-label="선택에 대한 직접 링크" title="선택에 대한 직접 링크" href="https://fenrird.github.io/blog/git-flow#%EC%84%A0%ED%83%9D">​</a></h3>
+<p>나는 다른 개발자들이 방심 했을 때, <code>Git Flow</code> 전략을 사용하기로 했다.
+<code>Git Flow</code> 선택 이유는 기존 서버가 1개에서 2개로 분리되면서 운영 브랜치와 개발 브랜치를 나눠야하고, 다른 브랜치 전략은 모두 하나의
+브랜치를 중심으로 피쳐를 파생하고, 그 브랜치가 항상 최신 소소지만 우리는 v1.x.x와 v2.x.x가 동시 개발한다는 점과 그리고 해보고 안되면
+말지라는 생각으로 선택하게 되었다.</p>
+<blockquote>
+<p>개발자 1분은 인병 휴가 상태고, 다른 한 분은 다른 프로젝트 지원 중 이였다.</p>
+</blockquote>
+<p>그리고 FE 개발자들을 설득하기 위해 그림을 그렸다.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="브랜치-정의">브랜치 정의<a class="hash-link" aria-label="브랜치 정의에 대한 직접 링크" title="브랜치 정의에 대한 직접 링크" href="https://fenrird.github.io/blog/git-flow#%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%A0%95%EC%9D%98">​</a></h3>
+<p><code>Git Flow</code> 전략에 맞게 각 브랜치는 사용 목적이 있는데 아래와 같다.</p>
+<ul>
+<li><code>master</code>
+<ul>
+<li>안정적인 코드 베이스</li>
+<li>내부망 개발, 운영에 반입된 소스</li>
+<li>태그는 prd-x.x.x</li>
+</ul>
+</li>
+<li><code>release</code>
+<ul>
+<li>배포 준비가 완료된 버전의 코드</li>
+<li>지라의 릴리스 기준으로 브랜치가 생성됨</li>
+<li>개발 서버에 반영 됨</li>
+<li>기획자 검수가 끝나고, 정기 배포날에 master 브랜치로 반영</li>
+</ul>
+</li>
+<li><code>develop</code>
+<ul>
+<li>다음 출시될 버전의 통합 브랜치</li>
+<li>항상 최신 소스를 갖고 있음</li>
+</ul>
+</li>
+<li><code>feature</code>
+<ul>
+<li>새로운 기능을 개발하기 위한 브랜치</li>
+<li>feature에서 개발 후, develop과 해당하는 릴리즈 버전에 반영 할 것</li>
+<li>feautre 브랜치 생성시에 규칙은 feat/JIRA-TICKET OR feat/기능 으로 한다.</li>
+</ul>
+</li>
+<li><code>hotfix</code>
+<ul>
+<li>배포 버전에서 발생한 긴급 문제 해결</li>
+</ul>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="내가그린기린그림" src="https://fenrird.github.io/assets/images/img_2-46fa67e0288bbf141652104e47247eeb.png" width="1074" height="524" class="img_ev3q"></p>
+<p>각 브랜치들의 목적을 설명하고 위 그림을 보면서 팀원들과 논의를 해서 <code>Git Flow</code> 전략을 사용하자고 동의를 얻었다.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="논의-중-나온-질문과-답변">논의 중 나온 질문과 답변<a class="hash-link" aria-label="논의 중 나온 질문과 답변에 대한 직접 링크" title="논의 중 나온 질문과 답변에 대한 직접 링크" href="https://fenrird.github.io/blog/git-flow#%EB%85%BC%EC%9D%98-%EC%A4%91-%EB%82%98%EC%98%A8-%EC%A7%88%EB%AC%B8%EA%B3%BC-%EB%8B%B5%EB%B3%80">​</a></h4>
+<div class="browserWindow_my1Q"><div class="browserWindowHeader_jXSR"><div class="buttons_uHc7"><span class="dot_giz1" style="background:#f25f58"></span><span class="dot_giz1" style="background:#fbbe3c"></span><span class="dot_giz1" style="background:#58cb42"></span></div><div class="browserWindowAddressBar_Pd8y text--truncate">http://localhost:3000</div><div class="browserWindowMenuIcon_Vhuh"><div><span class="bar_rrRL"></span><span class="bar_rrRL"></span><span class="bar_rrRL"></span></div></div></div><div class="browserWindowBody_Idgs"><p>Q. 이 전략이 필요한 이유가 뭐에요?</p><p>A. V2.0.1에 반영될 기능 A와 V2.0.2에 반영될 기능 B가 있을 때, 기존 방식대로라면 검수를 받기 위해 이 기능 모두 develop 브랜치에 머지가 될거고
+그러면 실제 V2.0.1 배포 때 develop 브랜치에서 이 기능만 가져오기가 복잡할것이다. 애초에 버전별 release 브랜치를 생성하고, develop 에 반영 후 검수 받고,
+검수 받은 후, 각 release에 반영하면 배포 날에는 해당 release 브랜치 기준으로 master에 머지하면 배포 날에 혼란이 줄어든다고 생각한다.</p><p>Q. 적응하는데 쉽지 않을거 같다.</p><p>A. 초기에는 귀찮고 힘들거라고 생각한다. 하지만 인간은 적응의 동물이다.</p><p>Q. 맛있는 빵집은?</p><p>A. 베통 소금빵 맛있다. 🤭</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="결론">결론<a class="hash-link" aria-label="결론에 대한 직접 링크" title="결론에 대한 직접 링크" href="https://fenrird.github.io/blog/git-flow#%EA%B2%B0%EB%A1%A0">​</a></h2>
+<p>Git Flow 전략을 사용한 지 3개월이 지났다.
+초기 2주 정도는 많은 시행착오가 있었지만 지금은 모두 규칙에 따라서 잘 운영되고 있다. 아마 초창기에 고생은 좀 했지만 이렇게 전략을 정하지 않고 개발을 했다면 배포할 때마다 더 고생을 했을 거라고 생각한다.</p>
+<p>어떤 브랜치 전략이든 정답은 없고 각 상황에 맞게 브랜치 전략을 사용하면 보다 생산성을 높이고 효율적으로 프로젝트를 운영할 수 있다고 생각한다.</p>
+<p>그리고 DevOps 역할을 하면서 늘 생각하는 거지만 어떻게 하면 보다 생산성을 높이고, 팀원들을 편하게 해줄까 고민하면서 내가 느끼는 고통은 크지만 내가 구현한 방식대로 잘 운영되고 좋은 피드백을 받을 때마다 기분이 좋다. 특히 Git Flow 도입 후 배포 과정이 안정화되고 팀 협업이 원활해지는 걸 보면서 DevOps의 매력에 푹 빠졌달까?</p>
+<p>이런 경험을 바탕으로 helm, terraform 등 다른 것도 공부하려고 한다. 아마 이것들도 도입하면 처음엔 팀원들이 투덜거리겠지만, 결국엔 "야 이거 좋네?"라고 말할 날을 기대하며...</p>
+<p><img decoding="async" loading="lazy" alt="img_end.png" src="data:image/png;base64,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" width="996" height="618" class="img_ev3q"></p>]]></content:encoded>
+            <category>Git Flow</category>
+            <category>FE</category>
+            <category>CI/CD</category>
+        </item>
         <item>
             <title><![CDATA[NPM 저장소에 내가 만든 컴포넌트 업로드 하기]]></title>
             <link>https://fenrirD.github.io/blog/My-First-Npm-Publish</link>
@@ -160,7 +283,7 @@ javascript 사용하는 패키지 저장소가 <strong>NPM</strong>이다.</p>
 </ol>
 <p>고민한 결과 HOC(고차 컴포넌트)를 사용하여 인가 로직을 추가하기로 결정하였다.</p>
 <div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>경고</div><div class="admonitionContent_BuS1"><p>최고이자 최선의 방법이 아닐 수 있습니다.</p></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="why-hoc--what-hoc-">Why? HOC &amp; What HOC? 🤔<a class="hash-link" aria-label="Why? HOC &amp; What HOC? 🤔에 대�한 직접 링크" title="Why? HOC &amp; What HOC? 🤔에 대한 직접 링크" href="https://fenrird.github.io/blog/HOC-And-Authorization#why-hoc--what-hoc-">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="why-hoc--what-hoc-">Why? HOC &amp; What HOC? 🤔<a class="hash-link" aria-label="Why? HOC &amp; What HOC? 🤔에 대한 직접 링크" title="Why? HOC &amp; What HOC? 🤔에 대한 직접 링크" href="https://fenrird.github.io/blog/HOC-And-Authorization#why-hoc--what-hoc-">​</a></h3>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="왜-hoc-선택-했을까">왜 HOC 선택 했을까?<a class="hash-link" aria-label="왜 HOC 선택 했을까?에 대한 직접 링크" title="왜 HOC 선택 했을까?에 대한 직접 링크" href="https://fenrird.github.io/blog/HOC-And-Authorization#%EC%99%9C-hoc-%EC%84%A0%ED%83%9D-%ED%96%88%EC%9D%84%EA%B9%8C">​</a></h4>
 <p>사실 가장 먼저 생각한 방법은 <code>vue-router</code>에서 구현되어 있는 <code>navigation-guards</code>를 활용하는 방법이였다.
 뷰 라우터에는 전역 네비게이션 가드와 컴포넌트 내부의 네비게이션가드를 제공해준다.</p>
@@ -189,7 +312,7 @@ javascript 사용하는 패키지 저장소가 <strong>NPM</strong>이다.</p>
 <p>참고로 이 블로그를 만든 docusaurus도 이러한 개념을 이용해서 커스텀이 가능하다!
 (글을 작성하면서 생각한건데 디자인 패턴 중하나인 Factory Pattern과 유사한거 같기도 하고.?)</p>
 </blockquote>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="개발-과정">개발 과정<a class="hash-link" aria-label="개발 과정�에 대한 직접 링크" title="개발 과정에 대한 직접 링크" href="https://fenrird.github.io/blog/HOC-And-Authorization#%EA%B0%9C%EB%B0%9C-%EA%B3%BC%EC%A0%95">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="개발-과정">개발 과정<a class="hash-link" aria-label="개발 과정에 대한 �직접 링크" title="개발 과정에 대한 직접 링크" href="https://fenrird.github.io/blog/HOC-And-Authorization#%EA%B0%9C%EB%B0%9C-%EA%B3%BC%EC%A0%95">​</a></h3>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="고차-컴포넌트-구현하기">고차 컴포넌트 구현하기<a class="hash-link" aria-label="고차 컴포넌트 구현하기에 대한 직접 링크" title="고차 컴포넌트 구현하기에 대한 직접 링크" href="https://fenrird.github.io/blog/HOC-And-Authorization#%EA%B3%A0%EC%B0%A8-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0">​</a></h4>
 <p>먼저, 내가 기존의 HOC 처럼, 컴포넌트(<code>baseComponent</code>)를 주입받고, 해당 컴포넌트를 접근(이용)하기 위해서 필요한 권한(<code>authorities</code>)을
 파라미터로 주입 받는다.</p>
