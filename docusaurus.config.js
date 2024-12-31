@@ -70,6 +70,7 @@ const config = {
     [
       '@docusaurus/plugin-sitemap',
       {
+        id:'sitemap',
         lastmod: 'date',
         changefreq: 'weekly',
         priority: 0.5,
