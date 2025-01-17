@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./styles.module.css";
-import {Props} from "@site/src/components/GridList";
 import {frontEnds} from "@site/src/data/constant";
 
-const GridList = (props:Props) => {
+
+const GridList = (props:any) => {
   console.log(props)
   const {data} = props;
   return (
