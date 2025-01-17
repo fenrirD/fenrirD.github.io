@@ -73,7 +73,7 @@ const careers: CareerType[] = [
         projectName: 'MSP Portal 개발',
         projectTerm: '2024.01 ~ 진행 중',
         projectDetail: 'KBDS에서 CSP 와 MSP가 업무를 수행하는데 효율적으로 하기 위한 플랫폼 개발',
-        skills: ['React', 'typescript', 'Recoil', 'React Query', 'jenkins', 'Git', 'k8s', ],
+        skills: ['React', 'typescript', 'Recoil', 'React Query', 'jenkins', 'Git', 'k8s', 'helm'],
         responsibilities: ['프론트엔드 리드 개발', 'DevOps(CI/CD)', '공통컴포넌트 개발', ]
       },
       {
